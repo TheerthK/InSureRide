@@ -1,4 +1,4 @@
-# InSureRide Backend — Akhilesh Module
+# InSureRide Backend
 
 **Auth + Onboarding + Fraud Detection + Chatbot + Security**
 
