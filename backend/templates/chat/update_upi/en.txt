@@ -1,0 +1,1 @@
+﻿To update your UPI VPA, go to Profile > Payment Settings. Enter your new VPA (e.g., name@upi) and verify it. Future payouts will go to the new VPA. Changes take effect immediately.

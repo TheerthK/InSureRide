@@ -1,0 +1,1 @@
+﻿Claims can be rejected for these reasons: (1) Our 5-layer fraud detection found anomalies, (2) The disruption did not meet the trigger threshold, or (3) Your policy was not active during the event. You can appeal by completing a quick sync-up verification (selfie + GPS).

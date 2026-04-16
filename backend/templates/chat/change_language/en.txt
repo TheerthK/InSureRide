@@ -1,0 +1,1 @@
+﻿You can change your language in Profile > Settings. We support: English, Hindi (हिन्दी), Tamil (தமிழ்), Telugu (తెలుగు), Kannada (ಕನ್ನಡ), and Bengali (বাংলা).
