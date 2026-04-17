@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -c \"import sys; print\\(sys.version\\)\")",
+      "Bash(python3 -m pytest tests/ -q)",
+      "Bash(python3 -c ' *)",
+      "Bash(python3 seed_demo.py)",
+      "Bash(find . -name __pycache__ -type d -exec rm -rf {} +)",
+      "Bash(shopt -s dotglob)",
+      "Bash(mv backend/* .)",
+      "Bash(find . -name __pycache__ -type d -not -path './.claude/*' -exec rm -rf {} +)",
+      "Bash(python3 -c \" import sys; sys.path.insert\\(0,'.'\\) from fastapi.testclient import TestClient from main import app c = TestClient\\(app\\) r = c.post\\('/premium/quote', json={'rider_id':1}\\).json\\(\\) print\\(f'quote: premium=₹{r[\\\\\"premium\\\\\"]} tier={r[\\\\\"tier\\\\\"]} risk={r[\\\\\"risk_band\\\\\"]}'\\) \")"
+    ]
+  }
+}

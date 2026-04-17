@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+.pytest_cache/
+.DS_Store
+insureride.db
+models/*.h5
+models/*.pkl
+data/*.csv
+!data/.gitkeep
+!models/.gitkeep
