@@ -11,7 +11,7 @@ ReDoc:      http://localhost:8000/redoc
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
-
+from claims_engine.claim_creator import create_claims
 from config import APP_NAME, APP_VERSION, DEMO_MODE
 from db import create_tables, SessionLocal
 from security.rate_limit import setup_rate_limiting
@@ -22,7 +22,7 @@ from auth.routes import router as auth_router
 from onboarding.routes import router as onboarding_router
 from fraud_detection.routes import router as fraud_router
 from chatbot.routes import router as chatbot_router
-
+from fastapi import APIRouter
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -131,3 +131,31 @@ async def root():
 @app.get("/health", tags=["Health"])
 async def health():
     return {"status": "ok"}
+
+
+
+# ── Theerth: Trigger Routes ────────────────────────────────────────────────
+
+from fastapi import APIRouter
+from claims_engine.claim_creator import create_claims
+
+trigger_router = APIRouter(prefix="/triggers", tags=["Triggers"])
+
+@trigger_router.get("/test")
+def test_trigger():
+    return {"message": "Theerth trigger working"}
+
+@trigger_router.post("/simulate")
+def simulate_trigger():
+    event = {
+        "type": "HEAVY_RAIN",
+        "zone": "Tambaram",
+        "value": 80
+    }
+
+    create_claims(event)
+
+    return {"message": "Trigger fired + claims created"}
+
+# ✅ INCLUDE ROUTER AT THE VERY END
+app.include_router(trigger_router)
